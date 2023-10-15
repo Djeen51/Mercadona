@@ -35,7 +35,7 @@ function ProductPage() {
             <section className={styles.productPage}>
                 <article className={styles.box}>
                         <div className={styles.container}>
-                        <img src={product.image} alt={product.name}/>
+                        <img className={styles.img} src={`http://127.0.0.1:8000/${product.image}`} alt={product.name}/>
                         </div>
                         <div className={styles.card}>
                             <h3>{product.name}</h3>

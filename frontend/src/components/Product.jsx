@@ -12,7 +12,7 @@ function Product({name, description,price, id, image}) {
                 <article>
                     <div className={styles.card} >
                          <div className={styles.container}>
-                             <img src={image} alt={name}/>
+                             <img src={`http://127.0.0.1:8000/${image}`} alt={name}/>
                          </div>
                          <div>
                              <h3>{name}</h3>

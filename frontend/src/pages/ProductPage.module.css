@@ -16,6 +16,10 @@
   height: 30%;
 }
 
+.img {
+  width:70%;
+}
+
 .box {
   display: flex;
   background-color: rgba(167, 184, 171, 0.9);

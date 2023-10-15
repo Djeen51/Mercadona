@@ -21,6 +21,7 @@
 .container {
   padding-top: 2rem; 
   text-align: center;
+  height: 16rem;
 }
 
 .product img {
@@ -38,6 +39,6 @@
 
 .card {
    background-color: whitesmoke;
-   height: 30rem;
+   height: 35rem;
 
 }
