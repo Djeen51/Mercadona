@@ -1,0 +1,39 @@
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: whitesmoke;
+    z-index: 2;
+  }
+  
+  .nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    padding: 2rem;
+  }
+  
+  .nav a:link,
+  .nav a:visited {
+    text-decoration: none;
+    color: #00c46a;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  /* CSS Modules feature */
+  .nav a:global(.active) {
+    color: #00c46a;
+  }
+  
+  a.ctaLink:link,
+  a.ctaLink:visited {
+    background-color: var(--color-brand--2);
+    color: #00c46a;
+    padding: 0.8rem 2rem;
+    border-radius: 7px;
+  }
+  

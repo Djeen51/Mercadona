@@ -1,0 +1,55 @@
+.banner {
+    height: 15rem;
+    background-image:  url("./promo.jpg");
+    background-size:cover;
+    background-position: center;
+    background-repeat: no repeat;
+    margin: 2rem 10rem;
+    border-radius: 0.5%;
+}
+
+.banner button {
+    margin-top: 2rem;
+    margin-left: 5rem;
+    background-color: #00c46a;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+    color: #fff;
+    cursor: pointer;
+    width: 10rem;
+    height: 5rem;
+}
+
+.banner h1 {
+    margin-top: 1rem;
+    margin-left: 5rem;
+}
+
+  
+  .banner button:focus:not(:focus-visible):not(.focus-visible) {
+    box-shadow: none;
+    outline: none;
+  }
+  
+  .banner button:hover {
+    background-color: #2c974b;
+  }
+  
+  .banner button:focus {
+    box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+    outline: none;
+  }
+  
+  .banner button:disabled {
+    background-color: #94d3a2;
+    border-color: rgba(27, 31, 35, .1);
+    color: rgba(255, 255, 255, .8);
+    cursor: default;
+  }
+  
+  .banner button:active {
+    background-color: #298e46;
+    box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+  }
+  

@@ -1,0 +1,43 @@
+.product {
+   width: 20%;
+   border: 1px solid white;
+   list-style: none;
+   background-color: rgb(255, 255, 255,0.8);
+}
+
+
+.product a {
+
+   text-decoration: none;
+   color: black;
+}
+
+.product h3 {
+   text-align: center;
+   font-size: 13px;
+
+}
+
+.container {
+  padding-top: 2rem; 
+  text-align: center;
+}
+
+.product img {
+   display: inline-block;
+   width: 50%;
+   border-radius: 25%;
+}
+.description {
+   padding: 2rem;
+}
+
+.product p {
+   font-size: 12px;
+}
+
+.card {
+   background-color: whitesmoke;
+   height: 30rem;
+
+}
