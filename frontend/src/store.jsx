@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { productListReducer, productDetailsReducer } from "./reducers/productReducers";
-import { userLoginReducer, userRegisterReducer } from './reducers/userReducers';
+import { userLoginReducer, userRegisterReducer, userDetailsReducer, userUpdateProfileReducer } from './reducers/userReducers';
 
 
 
@@ -19,6 +19,8 @@ const store = configureStore({
             productDetails: productDetailsReducer,
             userLogin: userLoginReducer,
             userRegister: userRegisterReducer,
+            userDetails: userDetailsReducer,
+            userUpdateProfile: userUpdateProfileReducer,
         }
       }, initialState)
       
