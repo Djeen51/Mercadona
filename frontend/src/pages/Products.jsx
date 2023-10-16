@@ -1,35 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import PageNav from "../components/PageNav";
 import styles from "./Products.module.css";
 import Product from "../components/Product";
 import Banner from "../components/Banner";
+import { listProducts } from "../actions/productActions";
 
 
-const URL = "http://127.0.0.1:8000"
+
 
 export default function Products() {
-  const [products, setProducts] = useState([]);  
-   function useFetch() {
-   
-    useEffect(function(){
-      async function fetchProducts(){
-          try {
-            const res = await fetch(`${URL}/api/products/`);
-            if(!res.ok) throw new Error("Something went wrong");
-            const data = await res.json();
-            setProducts(data)
-          }
-          catch(err){
-            console.log(err)
-          }
-      }
-      fetchProducts()
-    }, [])
-    return products
-  }
-  useFetch()
+    const dispatch = useDispatch()
+    const productList = useSelector(state => state.productList);
+    const {products} = productList;
 
-  
+    useEffect(() =>{
+      dispatch(listProducts())
+    }, [dispatch] )
+
   return (
     <main >
       <PageNav/>

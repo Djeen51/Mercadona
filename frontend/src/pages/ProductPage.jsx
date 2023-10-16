@@ -1,41 +1,34 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './ProductPage.module.css';
 import PageNav from '../components/PageNav';
 import { useParams } from 'react-router-dom';
 import Button from '../components/Button';
+import { listProductDetails } from '../actions/productActions';
 
 
 const URL = "http://127.0.0.1:8000"
 function ProductPage() {
-    const [product, setProduct] = useState([]);  
+
     const {id} = useParams();
-    
-   function useFetch() {
-   
-    useEffect(function(){
-      async function fetchProducts(){
-          try {
-            const res = await fetch(`${URL}/api/products/${id}`);
-            if(!res.ok) throw new Error("Something went wrong");
-            const data = await res.json();
-            setProduct(data)
-          }
-          catch(err){
-            console.log(err)
-          }
-      }
-      fetchProducts()
-    }, [])
-    return product
-  }
-  useFetch()
+    const dispatch = useDispatch();
+    const productDetails = useSelector(state => state.productDetails);
+    const product = productDetails.products ;
+
+  useEffect(() => {
+    dispatch(listProductDetails(id))
+  }, [dispatch, id])
+
+
+console.log(product)
+
     return (
         <div>
             <PageNav/>
             <section className={styles.productPage}>
                 <article className={styles.box}>
                         <div className={styles.container}>
-                        <img className={styles.img} src={`http://127.0.0.1:8000/${product.image}`} alt={product.name}/>
+                        <img className={styles.img} src={`${URL}/${product.image}`} alt={product.name}/>
                         </div>
                         <div className={styles.card}>
                             <h3>{product.name}</h3>

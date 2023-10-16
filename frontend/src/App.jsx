@@ -4,6 +4,8 @@ import Products from './pages/Products'
 import NotFound from './pages/NotFound'
 import Login from './pages/Login'
 import ProductPage from './pages/ProductPage'
+import Register from './pages/Register'
+
 
 
 
@@ -17,6 +19,7 @@ function App() {
           <Route path="catalogue" element={<Products />} />
           <Route path='catalogue/:id' element={<ProductPage />} />
           <Route path='login' element={<Login/>} />
+          <Route path='register' element={<Register/>} />
           <Route path="*" element={<NotFound/>} />
         </Routes>
     </BrowserRouter>
