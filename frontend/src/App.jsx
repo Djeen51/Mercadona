@@ -1,3 +1,8 @@
+// pour le correcteur, voici les identifiants pour se connecter sur le panneau admin : 
+
+// adresse mail : correcteur@gmail.com
+// password : test12345
+
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import Homepage from './pages/HomePage'
 import Products from './pages/Products'
