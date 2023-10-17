@@ -11,7 +11,7 @@ puis lancer le serveur frontend en tapant la commande : npm run dev
 Pour le correcteur, voici les identifiants pour se connecter sur le panneau admin : 
 
 adresse mail : correcteur@gmail.com
-password : correcteur12345
+password : test12345
 
 attention si erreur CORS, aller dans settings dans le dossier backend et modifier la ligne 
 CORS_ALLOWED_ORIGINS = [
