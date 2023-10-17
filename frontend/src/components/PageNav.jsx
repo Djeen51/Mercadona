@@ -2,7 +2,6 @@ import Logo from "./Logo"
 import styles from './PageNav.module.css'
 import { Link, NavLink } from "react-router-dom"
 import {useDispatch, useSelector} from 'react-redux'
-import { NavDropdown } from "react-bootstrap"
 import {logout} from '../actions/userActions'
 
 function PageNav() {
@@ -20,21 +19,30 @@ function PageNav() {
             <Logo />
             <ul>
                 <li>
-                    <NavLink to="/catalogue">Products</NavLink>
+                    <NavLink to="/catalogue">Shopping</NavLink>
                 </li>
-                {userInfo? (
-                    <NavDropdown title={userInfo.name} id='username'>
-                        <Link to='/profile'>Profile</Link>
-                        <NavDropdown.Item  style={{color: "red", padding: "2rem" }} onClick={logoutHandler}>Logout</NavDropdown.Item>
-                    </NavDropdown>
+                {userInfo ? (
+                    <li className={styles.dropdown}>    
+                         
+                         {userInfo.isAdmin && (
+                        <>
+                        <Link to='/admin/userList'>userList</Link>
+                        <Link to='/admin/productList' style={{color: "blue" }}> EDIT Products</Link>
+                        </>
+     
+                        )    
+                        
+                        }
+                         <Link  to='/profile' className={styles.dropbtn}>{userInfo.name}</Link>
+                         <Link  to='/' style={{color: "red" }} onClick={logoutHandler}>Logout</Link>
+                    </li>
                 ): (
 
                 <li>
                 <NavLink to="/Login">Login</NavLink>
                  </li>
                 )
-                }
-               
+                }               
             </ul>
         </nav>
     )

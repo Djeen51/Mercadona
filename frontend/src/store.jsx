@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { productListReducer, productDetailsReducer } from "./reducers/productReducers";
-import { userLoginReducer, userRegisterReducer, userDetailsReducer, userUpdateProfileReducer } from './reducers/userReducers';
+import { productListReducer, productUpdateReducer, productDetailsReducer, productDeleteReducer, productCreateReducer } from "./reducers/productReducers";
+import { userLoginReducer, userRegisterReducer, userDetailsReducer, userUpdateProfileReducer, userUpdateReducer,
+    userListReducer,  } from './reducers/userReducers';
 
 
 
@@ -17,10 +18,16 @@ const store = configureStore({
         reducer: {
             productList: productListReducer,
             productDetails: productDetailsReducer,
+            productDelete: productDeleteReducer,
+            productCreate: productCreateReducer,
+            productUpdate: productUpdateReducer,
+
             userLogin: userLoginReducer,
             userRegister: userRegisterReducer,
             userDetails: userDetailsReducer,
             userUpdateProfile: userUpdateProfileReducer,
+            userList: userListReducer,
+            userUpdate: userUpdateReducer,
         }
       }, initialState)
       

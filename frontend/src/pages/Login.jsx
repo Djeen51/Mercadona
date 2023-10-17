@@ -64,10 +64,10 @@ export default function Login() {
               </div>
 
               <div>
-                <Button><h2>Login</h2></Button>
+                <Button ><h2 style={{color: "whitesmoke"}}>Login</h2></Button>
               </div>
             </form>
-            <h2>New Customer? <Link 
+            <h2 style={{color: "whitesmoke"}} >New Customer? <Link style={{color: "green"}}
               to={redirect ? `/register?redirect=${redirect}` : `/register`}>
               Register</Link>
             </h2>

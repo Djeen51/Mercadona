@@ -6,6 +6,10 @@ import Login from './pages/Login'
 import ProductPage from './pages/ProductPage'
 import Register from './pages/Register'
 import Profile from './pages/Profile'
+import UserList from './pages/UserList'
+import UserEdit from './pages/UserEdit'
+import ProductsListAdmin from './pages/ProductsListAdmin'
+import ProductEdit from './pages/ProductEdit'
 
 
 
@@ -22,6 +26,10 @@ function App() {
           <Route path='login' element={<Login/>} />
           <Route path='register' element={<Register/>} />
           <Route path='profile' element={<Profile/>} />
+          <Route path='admin/userList' element={<UserList/>} />
+          <Route path='admin/user/:id/edit' element={<UserEdit/>} />
+          <Route path='admin/productList' element={<ProductsListAdmin/>} />
+          <Route path='/admin/product/:productId/edit' element={<ProductEdit/>} />
           <Route path="*" element={<NotFound/>} />
         </Routes>
     </BrowserRouter>

@@ -8,7 +8,7 @@ export default function Homepage() {
     <main className={styles.homepage}>
       <PageNav/>
       <section >
-        <h1>
+        <h1 style={{color: "whitesmoke"}}>
           Start your Shopping at Mercadona
           <br />
          Online Shopping 
