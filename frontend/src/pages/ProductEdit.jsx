@@ -35,6 +35,8 @@ function ProductEdit() {
     const productDetails = useSelector(state => state.productDetails)
     const { error, loading, product } = productDetails
 
+    
+
     const productUpdate = useSelector(state => state.productUpdate)
     const { error: errorUpdate, loading: loadingUpdate, success: successUpdate } = productUpdate
 
@@ -136,8 +138,8 @@ function ProductEdit() {
                 {loadingUpdate && <Loader />}
                 {errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
 
-                {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message>
-                    : (
+                {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> 
+                     :(
                         <Form onSubmit={submitHandler}>
                             <Form.Group controlId='name'>
                                     <Form.Label>Name</Form.Label>
@@ -158,7 +160,7 @@ function ProductEdit() {
                                         onChange={(e) => setPrice(e.target.value)}
                                     />
                                 </Form.Group>
-                            
+
                                 {/* <Form.Group controlId='image'>
                                     <Form.Label>Image</Form.Label>
                                     <Form.Control
@@ -254,7 +256,7 @@ function ProductEdit() {
                             </Button>
 
                         </Form>
-                    )}
+                    ) }
 
             </FormContainer >
         </div>

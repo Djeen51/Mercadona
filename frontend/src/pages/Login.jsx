@@ -10,8 +10,8 @@ import Button from "../components/Button";
 // const URL = 'http://127.0.0.1:8000';
 
 export default function Login() {
-  const [email, setEmail] = useState("Jintian.li@example.com");
-  const [password, setPassword] = useState("qwerty");
+  const [email, setEmail] = useState("correcteur@gmail.com");
+  const [password, setPassword] = useState("test12345");
 
   // Use the useSearchParams hook to access and manage query parameters
   const location = useLocation()

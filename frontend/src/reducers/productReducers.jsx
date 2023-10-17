@@ -41,13 +41,13 @@ export const productListReducer = (state= {products:[]}, action) => {
     }
 }
 
-export const productDetailsReducer = (state= {products:[]}, action) => {
+export const productDetailsReducer = (state= {product:{}}, action) => {
     switch(action.type) {
         case PRODUCT_DETAILS_REQUEST:
-            return {products: []}
+            return {...state}
 
         case PRODUCT_DETAILS_SUCCESS:
-            return {products: action.payload};
+            return {products: action.payload, product: action.payload};
 
         case PRODUCT_DETAILS_FAIL:
             return {error: action.payload};
