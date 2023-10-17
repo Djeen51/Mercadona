@@ -158,7 +158,7 @@ function ProductEdit() {
                                         onChange={(e) => setPrice(e.target.value)}
                                     />
                                 </Form.Group>
-
+                            
                                 {/* <Form.Group controlId='image'>
                                     <Form.Label>Image</Form.Label>
                                     <Form.Control
