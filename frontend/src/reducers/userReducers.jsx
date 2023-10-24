@@ -34,8 +34,10 @@ import {
 
  
 } from '../constants/userConstants'
+import { userInfoFromStorage } from '../store';
 
-export const userLoginReducer = (state= {}, action) => {
+
+export const userLoginReducer = (state= {userInfo: userInfoFromStorage}, action) => {
     switch(action.type) {
         case USER_LOGIN_REQUEST:
             return {}

@@ -6,10 +6,10 @@ import { userLoginReducer, userRegisterReducer, userDetailsReducer, userUpdatePr
 
 
 
-const userInfoFromStorage = localStorage.getItem('userInfo') ?
+ export const userInfoFromStorage = localStorage.getItem('userInfo') ?
     JSON.parse(localStorage.getItem('userInfo')) : null
 
-const initialState = {
+ const initialState = {
     userLogin: {userInfo: userInfoFromStorage}
 }
 
