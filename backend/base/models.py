@@ -15,16 +15,16 @@ class Product(models.Model):
     percentage= models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
     startDate = models.DateField(null=True, blank=True) 
     endDate= models.DateField(null=True, blank=True) 
-    discounted_price = models.DecimalField(max_digits=7, decimal_places=2, null=True, blank=True)  # Add a discounted price field
+    discounted_price = models.DecimalField(max_digits=7, decimal_places=2, null=True, blank=True)  
     _id=models.AutoField(primary_key=True, editable=False)
     
     def save(self, *args, **kwargs):
         if self.discount and self.percentage is not None:
-            # Calculate the discounted price based on the percentage
-            self.discounted_price = self.price - (self.price * (self.percentage / 100))
+            self.discounted_price = float(self.price) - (float(self.price) * (float(self.percentage) / 100))
         else:
             self.discounted_price = None
-        super(Product, self).save(*args, **kwargs)    
+        super(Product, self).save(*args, **kwargs)
+
 
     def __str__(self):
         return self.name

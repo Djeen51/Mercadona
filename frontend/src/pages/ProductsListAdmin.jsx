@@ -97,8 +97,8 @@ function ProductsListAdmin() {
                                     <td>{product.name}</td>
                                     <td>{product.price}</td>
                                     <td>{product.category}</td>
-                                    <td>{product.promotion}</td>
-                                    <td>{product.discount}</td>
+                                    <td>{product.discount?"yes" : "no"}</td>
+                                    <td>{product.percentage}</td>
                                     <td>{product.startDate}</td>
                                     <td>{product.endDate}</td>
                                     <td>{product.discounted_price}</td>

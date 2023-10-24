@@ -25,7 +25,7 @@ function ProductEdit() {
     const [percentage, setPercentage] = useState(null)
     const [startDate, setStartDate] = useState(null)
     const [endDate, setEndDate] = useState(null)
-    const [discountedPrice, setDiscountedPrice] = useState(null)
+    const [discounted_price, setDiscountedPrice] = useState(null)
     // const [uploading, setUploading] = useState(false)
 
 
@@ -93,7 +93,7 @@ function ProductEdit() {
             description,
             discount,
             percentage,
-            discountedPrice,
+            discounted_price,
             startDate,
             endDate,
         }))
@@ -242,7 +242,7 @@ function ProductEdit() {
                                             <Form.Control
                                                 type='number'
                                                 placeholder='Enter discounted price'
-                                                value={discountedPrice}
+                                                value={discounted_price}
                                                 onChange={(e) => setDiscountedPrice(e.target.value)}
                                             />
                                         </Form.Group>
