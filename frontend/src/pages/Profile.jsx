@@ -1,5 +1,4 @@
 import styles from './Profile.module.css'
-import PageNav from '../components/PageNav';
 import { useEffect, useState  } from "react";
 import { useDispatch, useSelector  } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +6,7 @@ import { Col} from 'react-bootstrap'
 import { getUserDetails, updateUserProfile } from "../actions/userActions";
 import Button from '../components/Button';
 import {USER_UPDATE_PROFILE_RESET} from '../constants/userConstants'
+import Header from '../components/Header';
 
 function Profile() {
 
@@ -64,9 +64,9 @@ function Profile() {
 
     }
     return (
-        <main>
-            <PageNav />
-
+        <>
+        <Header/>
+        <main className={styles.profile}>
                 <Col md={3} style={{padding: "3rem"}}>
                     <h2 className={styles.row} >User Profile</h2>
                     {message && <h2>{message}</h2>}
@@ -124,6 +124,7 @@ function Profile() {
                     </form> 
                 </Col>
         </main>
+        </>
     )
 }
 

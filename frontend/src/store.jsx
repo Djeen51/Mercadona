@@ -10,7 +10,7 @@ import { userLoginReducer, userRegisterReducer, userDetailsReducer, userUpdatePr
     JSON.parse(localStorage.getItem('userInfo')) : null
 
  const initialState = {
-    userLogin: {userInfo: userInfoFromStorage}
+    userLogin: {userInfo: userInfoFromStorage},
 }
 
 const store = configureStore({

@@ -1,10 +1,11 @@
 import styles from './Register.module.css'
-import PageNav from '../components/PageNav';
+// import PageNav from '../components/PageNav';
 import { useEffect, useState  } from "react";
 import { useDispatch, useSelector  } from "react-redux";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { register } from "../actions/userActions";
 import Button from '../components/Button';
+import Header from '../components/Header';
 
 function Register() {
     const [name, setName] = useState("");
@@ -42,8 +43,9 @@ function Register() {
   
 
     return (
+        <>
+        <Header />
         <main className={styles.register}>
-          <PageNav />
           <section>
             <div>
                 {message && <h2>{message}</h2>}
@@ -105,6 +107,7 @@ function Register() {
             </div>    
           </section>
         </main>
+        </>
       );
     }
 

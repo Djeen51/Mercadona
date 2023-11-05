@@ -1,5 +1,5 @@
 import styles from './ProductsListAdmin.module.css'
-import PageNav from '../components/PageNav';
+import Header from '../components/Header'
 import { useEffect  } from "react";
 import { useDispatch, useSelector  } from "react-redux";
 import { listProducts, deleteProduct, createProduct } from "../actions/productActions";
@@ -58,9 +58,9 @@ function ProductsListAdmin() {
     console.log(products)
     
     return (
-        <main >
-            <PageNav />
-            
+        <>
+        <Header/>
+        <main >            
             {products? ( 
             <div className={styles.productsListAdmin}> 
                         <Row className='align-items-center'>
@@ -123,6 +123,7 @@ function ProductsListAdmin() {
              </div>
                     ) : <p>user loading ....</p>}
         </main>
+        </>
              )
    }   
 

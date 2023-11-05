@@ -19,6 +19,8 @@ import {
     PRODUCT_UPDATE_REQUEST,
     PRODUCT_UPDATE_SUCCESS,
     PRODUCT_UPDATE_FAIL,
+
+
   } from '../constants/productConstants';
   import axios from 'axios';
   
@@ -51,6 +53,8 @@ import {
   };
   
 
+
+  
     
   export const listProductDetails = (id) => async (dispatch) => {
     try {

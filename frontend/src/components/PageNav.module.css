@@ -1,13 +1,100 @@
-.nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2rem;
-    background-color: whitesmoke;
-    z-index: 2;
+.pageNav {
+    width: 100%;
+    height: 10rem;
+    background: #eceaff ;
+    color: #00c46a ;
   }
   
-  .nav ul {
+
+.pageNav nav {
+  background: #eceaff;
+  width: 100%;
+  padding: 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+
+}
+
+.pageNav nav ul {
+  width: 100%;
+  text-align: right;
+}
+
+.pageNav ul li {
+  display: inline-block;
+  list-style: none;
+  margin: 10px 20px;
+}
+
+.pageNav ul li a {
+  color: #1a1a1a ;
+  text-decoration: none;
+}
+
+
+
+.subMenuWrap {
+  position: relative;
+  display: inline-block;
+}
+
+.subMenu {
+  position: absolute;
+  top: 100%; /* Position below the parent element */
+  right: 0;
+  background: #fff;
+  padding: 20px;
+  margin: 10px;
+  z-index: 1; /* Ensure it's displayed above other content */
+  max-height: 400px;
+  overflow-y: auto;
+  display: none;
+  /* Add a scroll bar if content exceeds max-height */
+ /* Hide the dropdown by default */
+}
+
+ 
+
+
+  .userInfo {
+    display: flex; 
+    align-items: center;
+  }
+
+  .userInfo h3 {
+    font-weight: 500;
+  }
+
+  .subMenu hr {
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 15px 0;
+  }
+
+  .subMenuLink {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+
+  }
+  
+  .subMenuLink p {
+    width: 100%;
+
+  }
+
+  .subMenuLink:hover p {
+    font-weight: bold
+  } 
+
+
+ /* .nav ul {
     list-style: none;
     display: flex;
     align-items: center;
@@ -24,7 +111,7 @@
     font-weight: 600;
   }
   
-  /* CSS Modules feature */
+
   .nav a:global(.active) {
     color: #00c46a;
   }
@@ -35,10 +122,9 @@
     color: #00c46a;
     padding: 0.8rem 2rem;
     border-radius: 7px;
-  }
+  } */
   
-
-  .logout {
+  /* .logout {
     color: red
   }
 
@@ -76,4 +162,4 @@
   
   .dropdown:hover .dropdown-content {
     display: block;
-  }
+  } */

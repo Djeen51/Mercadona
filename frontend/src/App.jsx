@@ -20,6 +20,8 @@ import ProductEdit from './pages/ProductEdit'
 
 
 
+
+
 function App() {
   
   return (
@@ -37,7 +39,8 @@ function App() {
           <Route path='/admin/product/:productId/edit' element={<ProductEdit/>} />
           <Route path="*" element={<NotFound/>} />
         </Routes>
-    </BrowserRouter>
+    </BrowserRouter>   
+
   )
 }
 

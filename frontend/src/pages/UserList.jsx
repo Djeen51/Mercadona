@@ -1,10 +1,10 @@
 import styles from './UserList.module.css'
-import PageNav from '../components/PageNav';
 import { useEffect  } from "react";
 import { useDispatch, useSelector  } from "react-redux";
 import { listUsers } from "../actions/userActions";
 import { Table } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import Header from '../components/Header';
 
 
 
@@ -38,9 +38,9 @@ function UserList() {
     console.log(users)
     
     return (
-        <main >
-            <PageNav />
-  
+        <>
+        <Header/>
+        <main > 
             {users? ( <div className={styles.userList}> 
                         <h1>Users</h1>
                         <Table striped bordered hover responsive className='table-sm'>
@@ -76,6 +76,7 @@ function UserList() {
                     </div>
                     ) : <p>user loading ....</p>}
         </main>
+        </>
              )
                 }
 

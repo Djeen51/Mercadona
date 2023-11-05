@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import styles from "./Homepage.module.css";
-import PageNav from "../components/PageNav";
+import Header from "../components/Header";
+
 
 
 export default function Homepage() {
   return (
+    <>
+    <Header/>
     <main className={styles.homepage}>
-      <PageNav/>
       <section >
         <h1 style={{color: "whitesmoke"}}>
           Start your Shopping at Mercadona
@@ -19,5 +21,6 @@ export default function Homepage() {
         <Link to="catalogue" className="cta">START YOUR SHOPPING NOW</Link>
       </section>
     </main>
+    </>
   );
 }

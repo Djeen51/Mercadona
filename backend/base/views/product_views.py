@@ -39,7 +39,7 @@ def createProduct(request):
         user= user,
         name='Apple',
         price= 0.99,
-        category="fruit",
+        category="FRUIT",
 
     )
 
@@ -68,3 +68,14 @@ def updateProduct(request, pk):
 
     serializer = ProductSerializer(product, many=False )
     return Response(serializer.data)
+
+@api_view(['POST'])
+def uploadImage(request):  
+    data = request.data
+
+    product_id = data['product_id']
+    product = Product.objects.get(_id=product_id)
+
+    product.image = request.FILES.get('image')
+    product.save()  
+    return Response('Image was uploaded')

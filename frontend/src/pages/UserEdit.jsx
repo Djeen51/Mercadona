@@ -1,11 +1,12 @@
 import styles from './Register.module.css'
-import PageNav from '../components/PageNav';
+// import PageNav from '../components/PageNav';
 import { useEffect, useState,   } from "react";
 import { useSelector , useDispatch } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { getUserDetails, updateUser } from "../actions/userActions";
 import {USER_UPDATE_RESET} from '../constants/userConstants'
 import Button from '../components/Button';
+import Header from '../components/Header';
 
 function EditUser() {
 
@@ -57,8 +58,9 @@ function EditUser() {
   
 
     return (
+        <>
+        <Header />
         <main className={styles.userEdit}>
-          <PageNav />
           <section>
             {errorUpdate && <h2>Error Occured</h2>}
             <Link style={{fontSize: "18px", marginLeft:"5rem", marginTop: "3rem"}} to='/admin/userList'>
@@ -106,6 +108,7 @@ function EditUser() {
             </div>    
           </section>
         </main>
+        </>
       );
     }
 

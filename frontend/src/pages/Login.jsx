@@ -3,9 +3,9 @@ import { useDispatch, useSelector  } from "react-redux";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 // import { useSearchParams } from 'react-router-dom';
 import styles from "./Login.module.css";
-import PageNav from "../components/PageNav";
 import { login } from "../actions/userActions";
 import Button from "../components/Button";
+import Header from "../components/Header";
 
 // const URL = 'http://127.0.0.1:8000';
 
@@ -13,7 +13,7 @@ export default function Login() {
   const [email, setEmail] = useState("correcteur@gmail.com");
   const [password, setPassword] = useState("test12345");
 
-  // Use the useSearchParams hook to access and manage query parameters
+
   const location = useLocation()
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -36,8 +36,9 @@ export default function Login() {
 }
 
   return (
+    <>
+    <Header/>
     <main className={styles.login}>
-      <PageNav />
       <section>
         <div>
           <div>
@@ -75,6 +76,7 @@ export default function Login() {
         </div>
       </section>
     </main>
+    </>
   );
 }
 

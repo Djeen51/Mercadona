@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-// import axios from 'axios'
+import axios from 'axios'
+import styles from './ProductEdit.module.css'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { Form, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
@@ -8,8 +9,9 @@ import Message from '../components/Message'
 import FormContainer from '../components/FormContainer'
 import { listProductDetails, updateProduct } from '../actions/productActions'
 import { PRODUCT_UPDATE_RESET } from '../constants/productConstants'
-import PageNav from '../components/PageNav'
+import Header from '../components/Header'
 
+const URL = "http://127.0.0.1:8000"
 
 function ProductEdit() {
 
@@ -26,7 +28,7 @@ function ProductEdit() {
     const [startDate, setStartDate] = useState(null)
     const [endDate, setEndDate] = useState(null)
     const [discounted_price, setDiscountedPrice] = useState(null)
-    // const [uploading, setUploading] = useState(false)
+    const [uploading, setUploading] = useState(false)
 
 
 
@@ -68,7 +70,7 @@ function ProductEdit() {
 
 
 
-    }, [dispatch, product, productId, successUpdate, navigate])
+    }, [dispatch, product, productId, successUpdate, navigate, image])
 
 
     useEffect(() => {
@@ -99,36 +101,37 @@ function ProductEdit() {
         }))
     }
 
-    // const uploadFileHandler = async (e) => {
-    //     const file = e.target.files[0]
-    //     const formData = new FormData()
+    const uploadFileHandler = async (e) => {
+        const file = e.target.files[0]
+        const formData = new FormData()
 
-    //     formData.append('image', file)
-    //     formData.append('product_id', productId)
+        formData.append('image', file)
+        formData.append('product_id', productId)
 
-    //     setUploading(true)
+        setUploading(true)
 
-    //     try {
-    //         const config = {
-    //             headers: {
-    //                 'Content-Type': 'multipart/form-data'
-    //             }
-    //         }
+        try {
+            const config = {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            }
 
-    //         const { data } = await axios.post('/api/products/upload/', formData, config)
+            const { data } = await axios.post(`${URL}/api/products/upload/`, formData, config)
+            console.log(data)
 
+            setImage(data)
+            setUploading(false)
 
-    //         setImage(data)
-    //         setUploading(false)
-
-    //     } catch (error) {
-    //         setUploading(false)
-    //     }
-    // }
+        } catch (error) {
+            setUploading(false)
+        }
+    }
 
     return (
-        <div style={{color:"black"}} >
-            <PageNav/>
+        <>
+        <Header/>
+        <div style={{color:"black"}} className={styles.productEdit} >
             <Link to='/admin/productlist'>
                 Go Back
             </Link>
@@ -141,109 +144,121 @@ function ProductEdit() {
                 {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> 
                      :(
                         <Form onSubmit={submitHandler}>
-                            <Form.Group controlId='name'>
+                            <Form.Group >
                                     <Form.Label>Name</Form.Label>
                                     <Form.Control
                                         type='name'
                                         placeholder='Enter name'
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
+                                        className={styles.inputField}
                                     />
                                 </Form.Group>
 
-                                <Form.Group controlId='price'>
+                                <Form.Group >
                                     <Form.Label>Price</Form.Label>
                                     <Form.Control
                                         type='number'
                                         placeholder='Enter price'
                                         value={price}
                                         onChange={(e) => setPrice(e.target.value)}
+                                        className={styles.inputField}
                                     />
                                 </Form.Group>
 
-                                {/* <Form.Group controlId='image'>
+                                <Form.Group >
                                     <Form.Label>Image</Form.Label>
                                     <Form.Control
                                         type='text'
-                                        placeholder='Enter image'
+                                        placeholder='Enter Image'
                                         value={image}
                                         onChange={(e) => setImage(e.target.value)}
+                                        className={styles.inputField}
                                     />
-                                    <Form.File
-                                        id='image-file'
-                                        label='Choose File'
-                                        custom
+                                    <label htmlFor="image-file" className="custom-file-label">Choose File</label>
+                                    <input
+                                        type="file"
+                                        id="image-file"
                                         onChange={uploadFileHandler}
+                                        className="custom-file-input"
                                     />
                                     {uploading && <Loader />}
-                                </Form.Group> */}
+                                </Form.Group>
 
-                                <Form.Group controlId='category'>
+                                <Form.Group >
                                     <Form.Label>Category</Form.Label>
                                     <Form.Control
                                         type='text'
                                         placeholder='Enter category'
                                         value={category}
-                                        onChange={(e) => setCategory(e.target.value)}
+                                        onChange={(e) => setCategory(e.target.value.toUpperCase())}
+                                        className={styles.inputField}
                                     />
                                 </Form.Group>
 
-                                <Form.Group controlId='description'>
+                                <Form.Group >
                                     <Form.Label>Description</Form.Label>
                                     <Form.Control
                                         type='text'
                                         placeholder='Enter description'
                                         value={description}
                                         onChange={(e) => setDescription(e.target.value)}
+                                        className={styles.inputField}
                                     />
                                 </Form.Group>
 
-                                <Form.Group controlId='discount'>
-                                    <Form.Check
-                                        type='checkbox'
-                                        label='Discount'
-                                        checked={discount}
-                                        onChange={(e) => setDiscount(e.target.checked)}
-                                    />
+                                <Form.Group >
+                                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                                        <Form.Check
+                                            type='checkbox'
+                                            checked={discount}
+                                            onChange={(e) => setDiscount(e.target.checked)}
+                                        />
+                                        <span style={{ marginLeft: '10px', fontWeight: 'bold', color: "red" }}>Discount</span>
+                                    </div>
                                 </Form.Group>
 
                                 {discount && (
                                     <>
-                                        <Form.Group controlId='percentage'>
+                                        <Form.Group >
                                             <Form.Label>Discount Percentage</Form.Label>
                                             <Form.Control
                                                 type='number'
                                                 placeholder='Enter percentage'
                                                 value={percentage}
                                                 onChange={(e) => setPercentage(e.target.value)}
+                                                className={styles.inputField}
                                             />
                                         </Form.Group>
 
-                                        <Form.Group controlId='startDate'>
+                                        <Form.Group >
                                             <Form.Label>Start Date</Form.Label>
                                             <Form.Control
                                                 type='date'
                                                 value={startDate}
                                                 onChange={(e) => setStartDate(e.target.value)}
+                                                className={styles.inputField}
                                             />
                                         </Form.Group>
 
-                                        <Form.Group controlId='endDate'>
+                                        <Form.Group >
                                             <Form.Label>End Date</Form.Label>
                                             <Form.Control
                                                 type='date'
                                                 value={endDate}
                                                 onChange={(e) => setEndDate(e.target.value)}
+                                                className={styles.inputField}
                                             />
                                         </Form.Group>
 
-                                        <Form.Group controlId='discountedPrice'>
+                                        <Form.Group >
                                             <Form.Label>Discounted Price</Form.Label>
                                             <Form.Control
                                                 type='number'
                                                 placeholder='Enter discounted price'
                                                 value={discounted_price}
                                                 onChange={(e) => setDiscountedPrice(e.target.value)}
+                                                className={styles.inputField}
                                             />
                                         </Form.Group>
                                     </>
@@ -260,6 +275,7 @@ function ProductEdit() {
 
             </FormContainer >
         </div>
+        </>
 
     )
 }
